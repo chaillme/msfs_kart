@@ -1,0 +1,12 @@
+{
+  // Static deployment of the game client (solo mode). Built by `npm run build` into client/dist.
+  // The multiplayer server (server/) is a Node WebSocket server and is not deployed here.
+  "name": "msfs-kart",
+  "compatibility_date": "2025-09-01",
+  "workers_dev": true,
+  "preview_urls": false,
+  "assets": {
+    "directory": "./client/dist",
+    "not_found_handling": "single-page-application"
+  }
+}

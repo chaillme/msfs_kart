@@ -10,8 +10,9 @@ function arg(name: string, fallback: string): string {
   return i >= 0 && process.argv[i + 1] ? process.argv[i + 1] : fallback;
 }
 
-// GAME_PORT / GAME_HOST (not PORT/HOST: dev tools often set PORT for the web client).
-const port = Number(arg('port', process.env.GAME_PORT ?? '8787'));
+// GAME_PORT / GAME_HOST first (dev tools often set PORT for the web client); on a host
+// such as Render, RENDER is set and the platform's PORT is the one to listen on.
+const port = Number(arg('port', process.env.GAME_PORT ?? (process.env.RENDER ? process.env.PORT : undefined) ?? '8787'));
 const host = arg('host', process.env.GAME_HOST ?? '127.0.0.1');
 const server = await startServer(port, host);
 

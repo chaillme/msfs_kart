@@ -13,9 +13,11 @@
     "test:predict": "tsx shared/tests/predict.test.ts",
     "server": "tsx server/src/index.ts",
     "build": "npm --prefix client ci && npm --prefix client run build",
-    "start": "npm run build && tsx server/src/index.ts --host 0.0.0.0"
+    "start": "npm run build && tsx server/src/index.ts --host 0.0.0.0",
+    "build:render": "npm --prefix server ci && npm run build",
+    "serve": "tsx server/src/index.ts --host 0.0.0.0"
   },
-  "devDependencies": {
+  "dependencies": {
     "tsx": "^4.20.0"
   }
 }

@@ -1,0 +1,13 @@
+# Render blueprint: one Node web service serving the built game (client/dist)
+# and the multiplayer WebSocket (/ws) on the port Render provides.
+services:
+  - type: web
+    name: msfs-kart
+    runtime: node
+    plan: free
+    buildCommand: npm ci && npm run build:render
+    startCommand: npm run serve
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: "22"

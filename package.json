@@ -1,0 +1,21 @@
+{
+  "name": "msfs-kart",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "test:physics": "tsx shared/tests/kart.test.ts",
+    "test:track": "tsx shared/tests/track.test.ts",
+    "test": "tsx shared/tests/kart.test.ts && tsx shared/tests/track.test.ts && tsx shared/tests/items.test.ts && tsx shared/tests/session.test.ts && tsx shared/tests/predict.test.ts && tsx server/tests/online.test.ts",
+    "test:items": "tsx shared/tests/items.test.ts",
+    "test:session": "tsx shared/tests/session.test.ts",
+    "test:online": "tsx server/tests/online.test.ts",
+    "test:predict": "tsx shared/tests/predict.test.ts",
+    "server": "tsx server/src/index.ts",
+    "build": "npm --prefix client run build",
+    "start": "npm run build && tsx server/src/index.ts --host 0.0.0.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.20.0"
+  }
+}

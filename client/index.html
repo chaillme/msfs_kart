@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#111418" />
+    <link rel="icon" href="data:," />
+    <title>MSF Supply Kart</title>
+  </head>
+  <body>
+    <main id="app">
+      <canvas id="game-canvas" tabindex="0" aria-label="Jeu MSF Supply Kart"></canvas>
+
+      <div id="speedlines" aria-hidden="true"></div>
+      <section id="race-hud" aria-live="off">
+        <div id="left-col">
+          <div id="position"><strong id="pos-value">1</strong><span id="pos-suffix">er</span><small id="pos-total">/3</small></div>
+          <div id="item-row">
+            <div id="item-box"><canvas id="item-icon" aria-label="Bonus en main"></canvas><span id="item-label"></span></div>
+            <div id="item-reserve"><canvas id="item-reserve-icon" aria-label="Bonus en réserve"></canvas></div>
+          </div>
+        </div>
+        <div id="lap-box">
+          <span>TOUR</span>
+          <strong><span id="lap-value">1</span>/<span id="lap-total">3</span></strong>
+        </div>
+        <div id="times">
+          <div><span>Course</span><strong id="time-total">0:00.000</strong></div>
+          <div><span>Tour</span><strong id="time-lap">0:00.000</strong></div>
+          <div><span>Meilleur</span><strong id="time-best">–</strong></div>
+        </div>
+      </section>
+
+      <canvas id="minimap" aria-label="Mini-carte"></canvas>
+
+      <section id="hud" aria-live="off">
+        <div id="speedo">
+          <strong id="speed-value">0</strong>
+          <span>km/h</span>
+        </div>
+        <div id="drift-gauge" aria-label="Charge du drift">
+          <div class="seg" data-level="1"></div>
+          <div class="seg" data-level="2"></div>
+          <div class="seg" data-level="3"></div>
+        </div>
+        <div id="boost-tag">TURBO</div>
+      </section>
+
+      <div id="countdown" class="hidden"></div>
+      <div id="banner" class="hidden"></div>
+      <section id="results" class="hidden" aria-live="polite"></section>
+      <div id="lap-flash" class="hidden"></div>
+
+      <aside id="help" class="hidden">
+        <h1>Commandes</h1>
+        <ul>
+          <li><kbd>Z</kbd>/<kbd>↑</kbd> accélérer · <kbd>S</kbd>/<kbd>↓</kbd> freiner / reculer</li>
+          <li><kbd>Q</kbd><kbd>D</kbd>/<kbd>←</kbd><kbd>→</kbd> tourner · <kbd>Espace</kbd> drift → mini-turbo</li>
+          <li><kbd>E</kbd> ou <kbd>Entrée</kbd> utiliser le bonus (caisses blanches MSF Supply)</li>
+          <li>Départ canon : accélérez juste après le « 1 » (trop tôt = calé)</li>
+          <li><kbd>R</kbd> se replacer (solo) · <kbd>Entrée</kbd> au classement : rejouer / salon</li>
+          <li><kbd>Échap</kbd> retour au menu · <kbd>H</kbd> masquer l'aide</li>
+        </ul>
+      </aside>
+      <div id="fps"></div>
+      <div id="net-badge" class="hidden"></div>
+      <section id="menu" class="hidden"></section>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

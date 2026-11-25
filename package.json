@@ -12,7 +12,7 @@
     "test:online": "tsx server/tests/online.test.ts",
     "test:predict": "tsx shared/tests/predict.test.ts",
     "server": "tsx server/src/index.ts",
-    "build": "npm --prefix client run build",
+    "build": "npm --prefix client ci && npm --prefix client run build",
     "start": "npm run build && tsx server/src/index.ts --host 0.0.0.0"
   },
   "devDependencies": {
